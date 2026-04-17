@@ -1,0 +1,623 @@
+/* ═══════════════════════════════════════════════════
+   DIGITAL ENTERPRISE LAB — responsive.css
+   Mobile-first responsive overrides
+═══════════════════════════════════════════════════ */
+
+/* ─── BREAKPOINTS ────────────────────────────────
+   --xl:   1280px
+   --lg:   1024px
+   --md:   768px
+   --sm:   480px
+   --xs:   360px
+──────────────────────────────────────────────── */
+
+/* ─── LARGE DESKTOP (1280px and below) ───────────── */
+@media (max-width: 1280px) {
+  :root {
+    --space-xl: 5rem;
+    --space-xxl: 7rem;
+  }
+
+  .hero__headline {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+  }
+
+  .roles__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .role-card:nth-child(2) {
+    border-right: none;
+  }
+
+  .role-card:nth-child(1),
+  .role-card:nth-child(2) {
+    border-bottom: var(--border);
+  }
+
+  .role-card--highlight {
+    border-right: none;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+/* ─── DESKTOP → TABLET (1024px and below) ────────── */
+@media (max-width: 1024px) {
+  :root {
+    --space-xl: 4rem;
+  }
+
+  /* Nav */
+  .nav__links {
+    gap: var(--space-sm);
+  }
+
+  /* Hero */
+  .hero__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .hero__headline {
+    font-size: clamp(3.5rem, 8vw, 5rem);
+  }
+
+  .hero__sub {
+    max-width: 100%;
+  }
+
+  .hero__stats {
+    flex-wrap: wrap;
+  }
+
+  /* Problem/Solution */
+  .ps__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .ps__divider {
+    display: none;
+  }
+
+  /* Services */
+  .services__grid {
+    grid-template-columns: 1fr;
+    border-right: none;
+  }
+
+  .service-card {
+    border-right: none;
+    border-bottom: var(--border);
+  }
+
+  .service-card:last-child {
+    border-bottom: none;
+  }
+
+  /* Portfolio */
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-card {
+    border-right: none;
+    border-bottom: var(--border);
+  }
+
+  .portfolio-card:nth-child(even) {
+    border-right: none;
+  }
+
+  .portfolio-card:nth-child(3),
+  .portfolio-card:nth-child(4) {
+    border-bottom: var(--border);
+  }
+
+  .portfolio-card:last-child {
+    border-bottom: none;
+  }
+
+  /* Pilot */
+  .pilot__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pilot__cohort,
+  .pilot__timeline {
+    border-right: none;
+    border-bottom: var(--border);
+  }
+
+  .pilot__outputs {
+    border-right: none;
+  }
+
+  /* About */
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  /* Team */
+  .team__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-card:nth-child(3n) {
+    border-right: var(--border);
+  }
+
+  .team-card:nth-child(2n) {
+    border-right: none;
+  }
+
+  .team-card:nth-child(4),
+  .team-card:nth-child(5),
+  .team-card:nth-child(6) {
+    border-bottom: none;
+  }
+
+  .team-card:nth-child(5) {
+    border-bottom: none;
+  }
+
+  .team-card:nth-child(3) {
+    border-bottom: var(--border);
+  }
+
+  /* Endorsements */
+  .endorsements__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .endorsement-card {
+    border-right: none;
+    border-bottom: var(--border-w) solid rgba(255,255,255,0.12);
+  }
+
+  .endorsement-card:last-child {
+    border-bottom: none;
+  }
+
+  /* Contact */
+  .contact__paths {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-path {
+    border-right: none;
+    border-bottom: var(--border);
+  }
+
+  .contact-path:last-child {
+    border-bottom: none;
+  }
+
+  /* Footer */
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ─── TABLET (768px and below) ───────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --space-xl: 3.5rem;
+    --space-lg: 2.5rem;
+    --space-md: 1.5rem;
+  }
+
+  /* Navigation */
+  .nav__inner {
+    padding: 0 var(--space-sm);
+  }
+
+  .nav__toggle {
+    display: flex;
+    z-index: 1001;
+  }
+
+  .nav__links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(320px, 80vw);
+    height: 100vh;
+    background: var(--black);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: var(--nav-h) var(--space-md) var(--space-md);
+    gap: var(--space-sm);
+    border-left: var(--border-w) solid var(--blue);
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+  }
+
+  .nav__links.open {
+    right: 0;
+  }
+
+  .nav__link {
+    font-size: 0.9rem;
+    color: var(--gray-mid);
+    padding: 0.5rem 0;
+  }
+
+  .nav__cta {
+    margin-top: var(--space-sm);
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding: 0.85rem var(--space-sm);
+  }
+
+  /* Mobile nav overlay */
+  .nav__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+    display: none;
+  }
+
+  .nav__overlay.visible {
+    display: block;
+  }
+
+  /* Nav toggle animation */
+  .nav__toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav__toggle.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .nav__toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Hero */
+  .hero__inner {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .hero__headline {
+    font-size: clamp(2.8rem, 10vw, 4rem);
+  }
+
+  .hero__sub {
+    font-size: 1rem;
+  }
+
+  .hero__ctas {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero__stats {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .hero__stat {
+    flex: 1;
+    min-width: 80px;
+    padding: 1rem;
+  }
+
+  .hero__stat-num {
+    font-size: 2rem;
+  }
+
+  /* Roles */
+  .roles__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .role-card {
+    border-right: none;
+    border-bottom: var(--border);
+  }
+
+  .role-card:last-child {
+    border-bottom: none;
+  }
+
+  /* Section headings */
+  .section-heading {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  /* Impact grid */
+  .impact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-card {
+    border-right: none;
+    border-bottom: var(--border-w) solid rgba(255,255,255,0.12);
+  }
+
+  .impact-card:nth-child(even) {
+    border-right: none;
+  }
+
+  .impact-card:nth-child(3),
+  .impact-card:nth-child(4) {
+    border-bottom: var(--border-w) solid rgba(255,255,255,0.12);
+  }
+
+  .impact-card:last-child {
+    border-bottom: none;
+  }
+
+  /* Team */
+  .team__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card {
+    border-right: none;
+    border-bottom: var(--border);
+  }
+
+  .team-card:nth-child(3n) {
+    border-right: none;
+  }
+
+  .team-card:nth-child(2n) {
+    border-right: none;
+  }
+
+  .team-card:last-child {
+    border-bottom: none;
+  }
+
+  /* Form */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .footer__brand {
+    grid-column: auto;
+  }
+
+  .footer__tagline {
+    font-size: 1rem;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+
+  /* Contact form */
+  .contact__form-section {
+    max-width: 100%;
+  }
+}
+
+/* ─── MOBILE (480px and below) ───────────────────── */
+@media (max-width: 480px) {
+  :root {
+    --space-xl: 3rem;
+    --space-lg: 2rem;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 0 var(--space-sm);
+  }
+
+  /* Nav */
+  .nav__logo img {
+    height: 34px;
+  }
+
+  /* Hero */
+  .hero__inner {
+    padding: var(--space-md) var(--space-sm);
+    padding-top: var(--space-lg);
+  }
+
+  .hero__meta-bar {
+    gap: 0.4rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .hero__meta-bar .mono-tag {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .hero__headline {
+    font-size: clamp(2.4rem, 12vw, 3.5rem);
+  }
+
+  .hero__stats {
+    border: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: 0;
+  }
+
+  .hero__stat {
+    border: var(--border-w) solid rgba(255,255,255,0.12);
+    border-right: var(--border-w) solid rgba(255,255,255,0.12) !important;
+    flex: 1;
+    min-width: 100px;
+    padding: 0.8rem;
+  }
+
+  .hero__stat-num {
+    font-size: 1.8rem;
+  }
+
+  /* Buttons */
+  .btn {
+    padding: 0.75rem 1.4rem;
+    font-size: 0.68rem;
+  }
+
+  /* Section tags */
+  .section-tag {
+    font-size: 0.62rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* Role cards */
+  .role-card {
+    padding: var(--space-sm) var(--space-sm) var(--space-md);
+  }
+
+  .role-card__title {
+    font-size: 1.4rem;
+  }
+
+  /* Service cards */
+  .service-card {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  /* Portfolio cards */
+  .portfolio-card {
+    padding: var(--space-sm);
+  }
+
+  /* Pilot */
+  .pilot__cohort,
+  .pilot__timeline,
+  .pilot__outputs {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .cohort-row__num {
+    font-size: 1.5rem;
+  }
+
+  .pilot__total-num {
+    font-size: 3rem;
+  }
+
+  /* Impact */
+  .impact-card {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .sdg__tags {
+    gap: 0.4rem;
+  }
+
+  .sdg-tag {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* Team */
+  .team-card {
+    padding: var(--space-sm);
+  }
+
+  /* Endorsement */
+  .endorsement-card {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .endorsement-card__quote-mark {
+    font-size: 3.5rem;
+  }
+
+  /* Contact paths */
+  .contact-path {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .contact-path h3 {
+    font-size: 1.6rem;
+  }
+
+  /* About */
+  .about__card {
+    padding: var(--space-sm);
+  }
+
+  /* Footer */
+  .footer__grid {
+    gap: var(--space-md);
+    padding-bottom: var(--space-md);
+  }
+
+  .footer__tagline {
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+}
+
+/* ─── VERY SMALL SCREENS (360px and below) ───────── */
+@media (max-width: 360px) {
+  .hero__headline {
+    font-size: 2.2rem;
+  }
+
+  .hero__ctas .btn {
+    font-size: 0.62rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .section-heading {
+    font-size: 1.8rem;
+  }
+}
+
+/* ─── PRINT ──────────────────────────────────────── */
+@media print {
+  .nav,
+  .hero__ticker-wrap,
+  .contact-form,
+  .footer__social,
+  .btn { display: none; }
+
+  body { background: white; color: black; }
+  a { color: black; }
+  .hero { min-height: auto; padding: 2rem 0; }
+}
+
+/* ─── REDUCED MOTION ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  html { scroll-behavior: auto; }
+}
